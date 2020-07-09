@@ -43,5 +43,53 @@ namespace ReviewOfC
             }
             return product;
         }
+
+
+
+        //// challenge2
+
+        /// <summary>
+        /// Gets input from user and calls the GetsAvrage method
+        /// </summary>
+        static void HandlesAverage()
+        {
+            Console.WriteLine("Please enter a number between 2-10:");
+            int userInput = int.Parse(Console.ReadLine());
+            string[] arr = new string[userInput];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine($"{arr[i]} of {arr.Length} - Enter a number: ");
+                // sets the input from the console into the array
+                arr[i] = Console.ReadLine();
+
+            }
+
+            int[] number = new int[arr.Length];
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                
+                number[i] = int.Parse(arr[i]);
+               
+            }
+
+            decimal result = GetsAverage(number);
+            Console.WriteLine($"The average of {arr.Length} is {result}");
+        }
+
+        /// <summary>
+        /// Gets an array of integers and finds the average
+        /// </summary>
+        /// <param name="arr"> input of array of integers</param>
+        /// <returns>average of integers</returns>
+        public static decimal GetsAverage(int[] arr)
+        {
+            decimal result = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                result += arr[i];
+            }
+            return result / arr.Length;
+        }
     }
 }

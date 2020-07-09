@@ -24,5 +24,16 @@ namespace XUnitTest
             int result = ProductString(input);
             Assert.Equal(expected, result);
         }
+
+
+        [Theory]
+        [InlineData(new int[] { 2, 3, 4, 3 }, 3)]
+        [InlineData(new int[] { 2, 1, 1, 1 }, 1.25)]
+        public void CanConfirmAverages(int[] arr, decimal expected)
+        {
+            decimal average = GetsAverage(arr);
+            Assert.Equal(expected, average);
+        }
+
     }
 }
